@@ -2,6 +2,7 @@
 import { Product } from "@/app/types/product";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Navbar from "@/app/components/navbar";
 
 const Productpage = ({ params }: { params: { id: string } }) => {
   const { id } = params;
@@ -22,26 +23,29 @@ const Productpage = ({ params }: { params: { id: string } }) => {
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-[#0f0f0f]">
-        <div className="max-w-3xl max-w-1xl mx-auto p-10 mt-10 mb-10 shadow-[0_10px_25px_rgba(59,130,246,0.7)] rounded-2xl bg-black">
-          <Image
-            src={item.image}
-            alt={item.title}
-            width={250}
-            height={250}
-            className="mx-auto mb-15 object-contain  "
-          />
+      <div className="min-h-screen items-center bg-gradient-to-r from-orange-400/35 via-pink-500/35 to-purple-600/35">
+        <Navbar />
+        <div className=" flex flex-1 items-center justify-center mt-10">
+          <div className="max-w-3xl max-h-150 p-10  bg-black/10 backdrop-blur-xl border-4 border-white/10 rounded-2xl shadow-lg">
+            <Image
+              src={item.image}
+              alt={item.title}
+              width={130}
+              height={130}
+              className="mx-auto mb-15 object-contain  "
+            />
 
-          <h1 className="text-3xl text-gray-600 font-bold mb-4">
-            {item.title}
-          </h1>
-          <p className="text-gray-600 mb-4">{item.description}</p>
-          <p className="text-xl font-semibold text-green-600">
-            Price: ${item.price}
-          </p>
-          <p className="text-sm text-gray-500 mt-2">
-            Category: {item.category}
-          </p>
+            <h1 className="text-3xl text-gray-600 font-bold mb-4">
+              {item.title}
+            </h1>
+            <p className="text-gray-600 mb-4">{item.description}</p>
+            <p className="text-xl font-semibold text-green-600">
+              Price: ${item.price}
+            </p>
+            <p className="text-sm text-gray-500 mt-2">
+              Category: {item.category}
+            </p>
+          </div>
         </div>
       </div>
     </>
